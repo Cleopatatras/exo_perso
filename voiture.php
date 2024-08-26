@@ -1,7 +1,7 @@
 <?php
 
 $voiture_id = $_GET['voiture_id'];
-require_once 'pdo.php';
+require_once 'config/pdo.php';
 
 //$pdo = new PDO("mysql:host=localhost;dbname=voitures;port=3306", 'root', '');
 
@@ -44,11 +44,7 @@ require_once 'template/head.php'; ?>
 
         </main>
 
-    <footer>
 
-
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
-</html>
-<a href="index.php">retour accueil</a>
+    <?php
+   require 'template/footer.php';
+   ?>
