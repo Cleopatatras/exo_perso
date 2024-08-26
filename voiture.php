@@ -9,23 +9,15 @@ require_once 'pdo.php';
 $query=$pdo->query('select * from voitures where id_immatriculation='.$voiture_id);
 
 $voiture=$query ->fetch(PDO::FETCH_ASSOC);
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <title>Annonce</title>
-    </head>
+$title='Annonce : '.$voiture['marque'].' '.$voiture['modele'];
+
+require_once 'template/head.php'; ?>
+
+
     <body>
-        <header>
-            <nav>
-            <a href="index.php" class="btn btn-primary">retour à la liste</a>
-            </nav>
-            <h1>Détail de l'annonce</h1>
-        </header>
+    <?php require_once 'template/header.php'; ?>
+
         <main>
             
             <div class="container">
