@@ -1,8 +1,28 @@
 <?php
-// $pdo = new PDO('mysql:host=localhost;dbname=voitures;port=3306','root',''); 
 
-//récup avec la BDD
-$pdo = new PDO("mysql:host=localhost;dbname=voitures;port=3306", 'root', '');
+//vérifie si le fichier php_ini est chargé
+// $inipath = php_ini_loaded_file();
+
+// if ($inipath) {
+//     echo 'php.ini chargé : ' . $inipath;
+// } else {
+//     echo 'Aucun fichier php.ini n\'a été chargé';
+// }
+
+//teste la connexion avec la BDD :
+
+//try{$pdo = new PDO("mysql:host=mysql-annec25.alwaysdata.net;dbname=annec25_bootcamp;port=3306",'annec25_php','test12345678ZZ'); } catch(PDOexception $e){die ($e -> getMessage());}
+
+// connexion avec bdd distante
+//$pdo = new PDO("mysql:host=mysql-annec25.alwaysdata.net;dbname=annec25_bootcamp;port=3306",'annec25_php','test12345678ZZ'); 
+//$pdo = new PDO("mysql:host=mysql-annec25.alwaysdata.net;dbname=;port=3306", 'user', 'mdp');
+
+//récup avec la BDD locale
+
+require_once 'pdo.php';
+
+//$pdo = new PDO("mysql:host=localhost;dbname=voitures;port=3306", 'root', '');
+
 
 $query=$pdo->query('select * from voitures');
 
@@ -86,7 +106,7 @@ $voitures_no_bdd = [
                         <p class="card-text"><?php echo $voiture['km'] ?> km</p>
                         <p class="card-text">Motorisation : <?php echo $voiture['type_motorisation'] ?></p>
                         <p class="card-text">Etat : <?php echo $voiture['etat'] ?></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="voiture.php?voiture_id=<?php echo $voiture['id_immatriculation']?>" class="btn btn-primary">voir en détail</a>
                     </div>
                 </div>
                 <?php } ?>
